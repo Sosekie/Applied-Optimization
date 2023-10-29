@@ -1,0 +1,55 @@
+# Implementing objective functions (4 pts)
+
+## Quadratic function
+
+### 2D: f(x,y) = 0.5(x^2 + gamma *y^2)
+
+Based on the _x passed in by the eval_f(const Vec &_x) function, the values of x and y are obtained to be equal to _x[0] and _x[1], respectively, and gamma_ is known, which gives the expression of the function f as 0.5*(x*x + gamma_*y*y).
+
+In the eval_gradient(const Vec &_x, Vec &_g) function, since d(0.5(x^2 + gamma *y^2))/dx results in x, and d(0.5(x^2 + gamma *y^2))/dy results in gamma*y, _g[0] equals x and _g[1] equals gamma_ *y.
+
+In the eval_hessian(const Vec &_x, Mat &_H) function, we calculate that d^2f/dx^2 is equal to 1.0, d^2f/dy^2 is equal to gamma, d^2f/dxdy is equal to 0.0, and d^2f/dydx is equal to 0.0. Obviously they are constants.
+
+We generated func_2D.csv in the build folder directory using the command ". /Build/bin/CsvExporter func_2D.csv 0 -10 -10 10 10 20 20", the generated func_2D.csv and its screenshots have been put into the folder, named "func_2D.csv", "func_2D_Contour.png", "func_2D_3D_Surface.png", please check it.
+
+### ND: f(x) = 0.5 * (x^T A x) + b^T + c
+
+The focus of matrix multiplication is on the transpose of x. Here we use "transpose()" to achieve this function.
+
+We notice a problem: when making "double func = 0.5*(_x.transpose()*A_*_x) + (b_.transpose()*_x) + c_", there will be a type error or mismatch in the make process, which will lead to failure to compile and execution. We consulted the Eigen library and used ".value()" to convert the result of matrix multiplication to a numerical value, which resulted in zero compilation errors.
+
+## A non-convex function
+
+We found that the difficulty in implementing this function is to implement "cos^2(4*y)*(1-x)^2". In fact, if we use the <cmath> library function of C++, this function is not difficult to implement, but the source code does not use <cmath>, so we provide two ways to use and not use <cmath> at the same time.
+
+We use cosine's Taylor Expansion to achieve this functionality. "4*y" can be viewed as x. We defined the initial value and the value of each term and tested the effect on the result of the function when the number of terms is equal to 1, 5, 10 and 100. We find that when n=10 the visualisation results are very similar to the target results. 
+
+The csv table and visualisation results are named "func_NC.csv", "func_non-convex_Contour.png", "func_non-convex_3D Surface" and put into a file for you to view.
+
+###########################################
+
+# Grid Search (6 pts)
+
+## grid search in 2D
+
+The 2D grid search is actually easy to implement, i.e. just iterate over all the sampled points in the 2D grid. The selection of sampling points is determined by "n_cells_", divide the distance between the top-right point and the bottom-left point in x and y dimensions by the number of cells, you can get the step size of each move, and thus get all the sampling points to be traversed. This process can be implemented using two for loops.
+
+We tested it on "FunctionQuadratic2D" with the command ". /Build/bin/GridSearch 1 -10 10 10", which means that the range of values is the same as the range of values used to draw the image of the FunctionQuadratic2D function, and the result is as expected: the function obtains a minimum value of -50 at x(0, -10), but we noticed a problem: The function achieves the same minimum value at x(0, 10), but that point is not recorded. So we further improved our algorithm and wanted to show all the points where the same minimum value can be taken.
+
+This process took us a lot of time, due to the habit of using python, resulting in a large number of syntactic habitual errors when using C++, in order to facilitate the display, we finally use an array to store all the points, and the minimum value and the corresponding point selection process step by step to print out, so as to make the grid search clear and concise. We take a screenshot of the output of this process and save it in the folder named "Grid Search in 2D process.png", and we can see that the function takes the minimum value of -50 when x is in Position (0 -10) and Position (0 10), which meets our expectations.
+
+We also tried different ranges, when the range of y is symmetric to the origin, there are two identical minima at the boundary of y. Changing the number of sampling points, the result will be the same. As shown in the figure "Grid Search in 2D process_change range and cells.png".
+
+## grid search in non-convex 2D
+
+The NonConvex2D function image looks like a weir - high all around and low in the middle. Because it is much more irregular than the previous 2D function, we chose a larger number of sampling points: n_cells_=1000. Of course, the more points we have, the closer we will be to the minimum, and we may just get the point that corresponds to the minimum value. We named the result "Grid Search in NonConvex2D process.png". The point corresponding to the minimum value is x(0.12 0.34), which we marked on the graph.
+
+## grid search in ND
+
+We thought this was the most difficult question in this assignment. The difficulty lies in the fact that the dimensions of the space are indeterminate, so we cannot use nested for loops to traverse all points in the space. We learnt how to use recursion and analysed the order in which points are traversed during recursion. Similarly, we printed out the process of finding the minimum value to help us analyse the iteration process. When typing the command ". /Build/bin/GridSearch 2 -10 10 10 5", the function gets the minimum value -2822.16 at x(10, 10, -10, -10, -10, 10).
+
+In case the same minimum value was not recorded, we also looked for the existence of the same minimum value - there are no different points that take the same function under that range of values. Also, the time required for the search. When the number of sampling points per dimension is set to 1000, i.e. by typing ". /Build/bin/GridSearch 2 -10 10 1000 5", the running time was as long as forty-three minutes!
+
+During this process, the minimum value was held at x(-10, -10, 10, 10, -10) for about twenty minutes, meaning that the function value of -2478.66 at that point should be a local minimum, which makes us very happy because it's really fun to imagine what it looks like with these local minima even though we can't visualise it.
+
+We saved this local minimum as well as the global minimum and named it "Grid Search in ND process_local&global.png". You can check it out if you are interested.
