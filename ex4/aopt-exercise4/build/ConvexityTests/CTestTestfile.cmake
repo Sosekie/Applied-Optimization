@@ -1,0 +1,20 @@
+# CMake generated Testfile for 
+# Source directory: /mnt/c/4_Code/Optimization/aopt-exercise4/ConvexityTests
+# Build directory: /mnt/c/4_Code/Optimization/aopt-exercise4/build/ConvexityTests
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+add_test(ConvexityTest.Quadratic2DisConvex "/mnt/c/4_Code/Optimization/aopt-exercise4/build/Build/bin/ConvexityTests-test" "--gtest_filter=ConvexityTest.Quadratic2DisConvex" "--gtest_color=yes")
+set_tests_properties(ConvexityTest.Quadratic2DisConvex PROPERTIES  _BACKTRACE_TRIPLES "/usr/share/cmake-3.22/Modules/GoogleTest.cmake;400;add_test;/mnt/c/4_Code/Optimization/aopt-exercise4/ConvexityTests/CMakeLists.txt;25;gtest_add_tests;/mnt/c/4_Code/Optimization/aopt-exercise4/ConvexityTests/CMakeLists.txt;0;")
+add_test(ConvexityTest.QuadraticNDisConvex "/mnt/c/4_Code/Optimization/aopt-exercise4/build/Build/bin/ConvexityTests-test" "--gtest_filter=ConvexityTest.QuadraticNDisConvex" "--gtest_color=yes")
+set_tests_properties(ConvexityTest.QuadraticNDisConvex PROPERTIES  _BACKTRACE_TRIPLES "/usr/share/cmake-3.22/Modules/GoogleTest.cmake;400;add_test;/mnt/c/4_Code/Optimization/aopt-exercise4/ConvexityTests/CMakeLists.txt;25;gtest_add_tests;/mnt/c/4_Code/Optimization/aopt-exercise4/ConvexityTests/CMakeLists.txt;0;")
+add_test(ConvexityTest.OtherQuadraticNDisConvex "/mnt/c/4_Code/Optimization/aopt-exercise4/build/Build/bin/ConvexityTests-test" "--gtest_filter=ConvexityTest.OtherQuadraticNDisConvex" "--gtest_color=yes")
+set_tests_properties(ConvexityTest.OtherQuadraticNDisConvex PROPERTIES  _BACKTRACE_TRIPLES "/usr/share/cmake-3.22/Modules/GoogleTest.cmake;400;add_test;/mnt/c/4_Code/Optimization/aopt-exercise4/ConvexityTests/CMakeLists.txt;25;gtest_add_tests;/mnt/c/4_Code/Optimization/aopt-exercise4/ConvexityTests/CMakeLists.txt;0;")
+add_test(ConvexityTest.YetAnotherQuadraticNDisConvex "/mnt/c/4_Code/Optimization/aopt-exercise4/build/Build/bin/ConvexityTests-test" "--gtest_filter=ConvexityTest.YetAnotherQuadraticNDisConvex" "--gtest_color=yes")
+set_tests_properties(ConvexityTest.YetAnotherQuadraticNDisConvex PROPERTIES  _BACKTRACE_TRIPLES "/usr/share/cmake-3.22/Modules/GoogleTest.cmake;400;add_test;/mnt/c/4_Code/Optimization/aopt-exercise4/ConvexityTests/CMakeLists.txt;25;gtest_add_tests;/mnt/c/4_Code/Optimization/aopt-exercise4/ConvexityTests/CMakeLists.txt;0;")
+add_test(ConvexityTest.NonConvex2DIsConvexOnCertainInterval "/mnt/c/4_Code/Optimization/aopt-exercise4/build/Build/bin/ConvexityTests-test" "--gtest_filter=ConvexityTest.NonConvex2DIsConvexOnCertainInterval" "--gtest_color=yes")
+set_tests_properties(ConvexityTest.NonConvex2DIsConvexOnCertainInterval PROPERTIES  _BACKTRACE_TRIPLES "/usr/share/cmake-3.22/Modules/GoogleTest.cmake;400;add_test;/mnt/c/4_Code/Optimization/aopt-exercise4/ConvexityTests/CMakeLists.txt;25;gtest_add_tests;/mnt/c/4_Code/Optimization/aopt-exercise4/ConvexityTests/CMakeLists.txt;0;")
+add_test(ConvexityTest.NonConvex2DIsNonConvexOnOtherInterval "/mnt/c/4_Code/Optimization/aopt-exercise4/build/Build/bin/ConvexityTests-test" "--gtest_filter=ConvexityTest.NonConvex2DIsNonConvexOnOtherInterval" "--gtest_color=yes")
+set_tests_properties(ConvexityTest.NonConvex2DIsNonConvexOnOtherInterval PROPERTIES  _BACKTRACE_TRIPLES "/usr/share/cmake-3.22/Modules/GoogleTest.cmake;400;add_test;/mnt/c/4_Code/Optimization/aopt-exercise4/ConvexityTests/CMakeLists.txt;25;gtest_add_tests;/mnt/c/4_Code/Optimization/aopt-exercise4/ConvexityTests/CMakeLists.txt;0;")
+add_test(ConvexityTest.NonConvex2DIsNonConvexOnYetAnotherInterval "/mnt/c/4_Code/Optimization/aopt-exercise4/build/Build/bin/ConvexityTests-test" "--gtest_filter=ConvexityTest.NonConvex2DIsNonConvexOnYetAnotherInterval" "--gtest_color=yes")
+set_tests_properties(ConvexityTest.NonConvex2DIsNonConvexOnYetAnotherInterval PROPERTIES  _BACKTRACE_TRIPLES "/usr/share/cmake-3.22/Modules/GoogleTest.cmake;400;add_test;/mnt/c/4_Code/Optimization/aopt-exercise4/ConvexityTests/CMakeLists.txt;25;gtest_add_tests;/mnt/c/4_Code/Optimization/aopt-exercise4/ConvexityTests/CMakeLists.txt;0;")
