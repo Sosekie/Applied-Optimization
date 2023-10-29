@@ -1,0 +1,3 @@
+/mnt/e/Bern_temp/optimization/ex3/aopt-exercise3/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate.dir
+/mnt/e/Bern_temp/optimization/ex3/aopt-exercise3/build/_deps/googletest-subbuild/CMakeFiles/edit_cache.dir
+/mnt/e/Bern_temp/optimization/ex3/aopt-exercise3/build/_deps/googletest-subbuild/CMakeFiles/rebuild_cache.dir
